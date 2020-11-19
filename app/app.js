@@ -13,8 +13,6 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
-// app.use(mount('/public', serve(`${__dirname}/../public`)));
 app.use(mount('/', serve(`${__dirname}/../dist/`)));
-// app.use(mount('/css', serve(`${__dirname}/../dist/css`)));
 
 app.listen(process.env.PORT || 3000);
