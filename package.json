@@ -5,15 +5,22 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "initDB": "mysql -u root -p < ./app/db/initDB.sql",
+    "dropDB": "mysql -u root -p < ./app/db/dropDB.sql",
+    "migrate": "knex --knexfile=./app/db/knexfile.js migrate:latest",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@koa/router": "^10.0.0",
     "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
+    "knex": "^0.21.12",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
     "koa-mount": "^4.0.0",
     "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "mysql": "^2.18.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
