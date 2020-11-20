@@ -6,8 +6,8 @@
                 v-model="title"
                 class="add-todo-input"
                 :class="{'error': error && !title}"
-                placeholder="Ender todo">
-        <button type="submit" class="add-todo-btn">Add</button>
+                placeholder="A new todo...">
+        <button type="submit" class="add-todo-btn" :class="{'blocked': loading}">Add</button>
     </form>
     <span v-if="error && !title" class="error-text">{{error}}</span>
     </div>
@@ -15,6 +15,7 @@
 
 <script>
 export default {
+    props: ['loading'],
     data() {
         return {
             title: '',
@@ -23,6 +24,7 @@ export default {
     },
     methods: {
         onSubmit() {
+            if(this.loading) return;
             const title = this.title.trim()
             if(title){
                 this.$emit('add-todo', { todo_title: title, done: false})
@@ -56,6 +58,7 @@ export default {
         padding: 8px;
         font-size: 16px;
         border-radius: 7px;
+        box-shadow: 0 5px 10px rgb(101 101 101 / 16%);
     }
 
     .add-todo-input:focus {
@@ -73,5 +76,11 @@ export default {
         border-radius: 10px;
         color: #fff;
         background-color: #033180;
+        box-shadow: 0 5px 10px rgb(101 101 101 / 46%);
+    }
+
+    .add-todo-btn.blocked {
+        background-color: #646464;
+        cursor: not-allowed;  
     }
 </style>

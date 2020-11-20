@@ -1,5 +1,5 @@
 exports.up = (knex) => {
-    return knex.schema.withSchema(process.env.DB_NAME)
+    return knex.schema
       .createTable('todos', (table) => {
         table.increments('id').unsigned().unique().notNullable();
         table.string('todo_title').notNullable();

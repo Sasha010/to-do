@@ -1,10 +1,10 @@
 export async function getTodos() {
-    const response = await fetch('http://localhost:3000/api/todos/getTodos');
+    const response = await fetch('/api/todos/getTodos');
     return response.json();
 }
 
 export async function createTodo(todo) {
-    const response = await fetch('http://localhost:3000/api/todos/createTodo',
+    const response = await fetch('/api/todos/createTodo',
         {
             method: 'POST',
             headers: {
@@ -16,7 +16,7 @@ export async function createTodo(todo) {
 }
 
 export async function changeTodoStatus(id, status) {
-    const response = await fetch('http://localhost:3000/api/todos/changeTodoStatus',
+    const response = await fetch('/api/todos/changeTodoStatus',
         {
             method: 'POST',
             headers: {

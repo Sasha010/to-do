@@ -3,12 +3,10 @@ const mount = require('koa-mount');
 const serve = require('koa-static');
 const bodyParser = require('koa-body');
 const router = require('./routes');
-const cors = require('koa2-cors')
 
 const app = new Koa();
 
 app.use(bodyParser());
-app.use(cors())
 app
     .use(router.routes())
     .use(router.allowedMethods());

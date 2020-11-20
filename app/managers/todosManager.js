@@ -5,13 +5,13 @@ const config = require('../db/knexfile')[environment];
 const knex = require('knex')(config);
 
 module.exports = {
-    getTodos: () => { return knex('todos') },
+    getTodos: () => knex('todos').orderBy('id'),
     /**
      * @param data
      * @param data.title
      * @param data.done
      * @return {Promise<*>}
      */
-    createTodo: (data) => knex('todos').insert(data),
+    createTodo: (data) => knex('todos').insert(data).returning('id'),
     changeTodoStatus: (id, status) => knex('todos').update('done', status).where('id', id)
 }
