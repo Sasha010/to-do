@@ -5,7 +5,7 @@ const config = require('../db/knexfile')[environment];
 const knex = require('knex')(config);
 
 module.exports = {
-    getTodos: () => { return knex('todos') },
+    getTodos: () => knex('todos').orderBy('id'),
     /**
      * @param data
      * @param data.title

@@ -2,7 +2,7 @@
   <div id="app" class="wrapper">
     <div class="container">
       <h1 class="title">To Do</h1>
-      <AddTodo @add-todo="addTodo" />
+      <AddTodo @add-todo="addTodo" v-bind:loading="loading"/>
       <Loader v-if="loading" />
       <TodoList v-else-if="todos.length" v-bind:todos="todos" @onChangeTodoStatus="onChangeTodoStatus" />
       <span v-else class="no-todos">No todos!</span>
@@ -85,12 +85,7 @@ export default {
   width: 100%;
   min-height: 100vh;
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,#020024,#090979 35%,#196a94);
 }
 
 .container {
@@ -102,6 +97,7 @@ export default {
   padding: 25px;
   background-color: aliceblue;
   border-radius: 15px;
+  box-shadow: 0 0 30px rgb(101 101 101 / 51%);
 }
 
 .title {
