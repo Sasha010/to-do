@@ -20,6 +20,7 @@
     "koa-body": "^4.2.0",
     "koa-mount": "^4.0.0",
     "koa-static": "^5.0.0",
+    "node-input-validator": "^4.2.1",
     "pg": "^8.5.1",
     "vue": "^2.6.11"
   },
