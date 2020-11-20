@@ -1,24 +1,27 @@
-# to-do
+# To-do
+A simple todo list app built in Vue and Koa.
 
-## Project setup
+## .env variables
 ```
-npm install
+DB_HOST
+
+DB_PORT
+
+DB_PASS
+
+DB_USER
+
+DB_NAME
+
+ENVIRONMENT
 ```
 
-### Compiles and hot-reloads for development
+### Run project
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
+npm run install
+npm run initDB
+npm run migrate
 npm run build
+npm run start
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
